@@ -8,9 +8,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"example": "cd example && npm install && npm run browserify && npm run start"
+	"example": "cd example && npm install && npm run browserify && npm run start",
+	"jshint": "jshint router.js index.js supports-push-state.js"
   },
-  "author": "",
+  "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
     "router": "^1.0.0"
