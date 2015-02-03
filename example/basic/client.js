@@ -1,4 +1,4 @@
-var polyfills = require('../polyfills'),
+var polyfills = require('../lib/polyfills'),
 	router = require('../')(),
 	routes = require('./routes');
 
