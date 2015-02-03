@@ -1,0 +1,18 @@
+{
+  "name": "netgear",
+  "version": "1.0.0",
+  "description": "A client-side wrapper for the Express router",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"example": "cd example && npm install && npm run browserify && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "router": "^1.0.0"
+  }
+}
