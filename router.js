@@ -18,31 +18,28 @@ Router.prototype.base = function(path) {
 };
 
 Router.prototype.listen = function(options) {
-	// Don't do anything when pushState is not supported
-	if (!supported) {
-		return;
-	}
-
 	// Default options
 	options = options || {};
 
 	// Watch for popstate?
-	if (options.popstate !== false) {
+	if (supported && options.popstate !== false) {
 		window.addEventListener('popstate', this.onPopstate.bind(this), false);
 	}
 	
 	// Intercept all clicks?
-	if (options.interceptClicks !== false) {
+	if (supported && options.interceptClicks !== false) {
 		window.addEventListener('click', this.onClick.bind(this), false);
 	}
 
 	// Dispatch at start?
 	if (options.dispatch !== false) {
-		this._processRequest(window.location.pathname);
+		this._processRequest(location.pathname + location.search + location.hash, true);
 	}
 };
 
-Router.prototype.onPopstate = function(E) {
+Router.prototype.onPopstate = function(e) {
+	// Process the request
+	this._processRequest((e.state && e.state.path) || location.pathname + location.search + location.hash, true);
 };
 
 Router.prototype.onClick = function(e) {
@@ -74,7 +71,7 @@ Router.prototype.onClick = function(e) {
     var link = el.getAttribute('href');
 
     // ensure this is not a hash for the same path
-    if (el.pathname === window.location.pathname && (el.hash || link === '#')) {
+    if (el.pathname === location.pathname && (el.hash || link === '#')) {
 		return;
 	}
 
@@ -103,7 +100,10 @@ Router.prototype.onClick = function(e) {
 	this._processRequest(el.pathname);
 };
 
-Router.prototype._processRequest = function(url) {
+Router.prototype._processRequest = function(url, replace) {
+	// Push the state
+	history[replace ? 'replaceState' : 'pushState']({path: url}, null, url);
+
 	// Run the route matching
 	this({
 		method: 'GET',
@@ -130,7 +130,7 @@ function which(e) {
 }
 
 // Internal request
-var isInternal = new RegExp('^(?:(?:http[s]?:\/\/)?' + window.location.host.replace(/\./g, '\\.') + ')?\/', 'i');
+var isInternal = new RegExp('^(?:(?:http[s]?:\/\/)?' + location.host.replace(/\./g, '\\.') + ')?\/', 'i');
 function sameOrigin(url) {
 	return !!isInternal.test(url);
 }
