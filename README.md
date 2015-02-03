@@ -7,10 +7,10 @@ Requires HTML5 `pushState` api.
 Example:
 
 ```javascript
-var router = require('netgear')();
+var router = require('nighthawk')();
 
 router.get('/', function(req, res) {
-	alert('Hi from your netgear router!');
+	alert('Hi from your nighthawk router!');
 });
 router.get('/:foo', function(req, res) {
 	alert('You visited /' + req.params.foo);

@@ -2,7 +2,7 @@
  * @file Router.js
  * @author Wes Todd
  * @version 1.0
- * @module netgear
+ * @module nighthawk
  */
 
 // Requirements
@@ -14,7 +14,7 @@ var BaseRouter = require('router'),
  * Router
  *
  * @constructor Router
- * @memberof module:netgear
+ * @memberof module:nighthawk
  * @augments module:router.Router
  * @param {Object} [options]
  * @param {String} [options.base] - The base path for this router to match against
@@ -36,7 +36,7 @@ util.inherits(Router, BaseRouter);
  * Set the base path for this router
  *
  * @function base
- * @memberof module:netgear.Router
+ * @memberof module:nighthawk.Router
  * @instance
  * @param {String} path - The new base path
  */
@@ -48,7 +48,7 @@ Router.prototype.base = function(path) {
  * Start listening for route chagnes
  *
  * @function listen
- * @memberof module:netgear.Router
+ * @memberof module:nighthawk.Router
  * @instance
  * @param {Object} [options]
  * @param {Boolean} [options.popstate] - Should we bind to the popstate event?
@@ -79,7 +79,7 @@ Router.prototype.listen = function(options) {
  * Handler for the popstate event
  *
  * @function onPopstate
- * @memberof module:netgear.Router
+ * @memberof module:nighthawk.Router
  * @instance
  * @param {Event} e
  */
@@ -92,7 +92,7 @@ Router.prototype.onPopstate = function(e) {
  * Handler for all click events
  *
  * @function onClick
- * @memberof module:netgear.Router
+ * @memberof module:nighthawk.Router
  * @instance
  * @param {Event} e
  */
@@ -158,7 +158,7 @@ Router.prototype.onClick = function(e) {
  * Process a url
  *
  * @function onClick
- * @memberof module:netgear.Router
+ * @memberof module:nighthawk.Router
  * @instance
  * @private
  * @param {String} url - The new url for the page
