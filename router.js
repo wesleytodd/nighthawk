@@ -24,11 +24,14 @@ var Router = module.exports = function Router(options) {
 		return new Router(options);
 	}
 
+	// Options is optional
+	options = options || {};
+
 	// Set the base path
 	this.base(options.base || null);
 
 	// Call parent constructor
-	BaseRouter.call(this, options);
+	return BaseRouter.call(this, options);
 };
 util.inherits(Router, BaseRouter);
 
@@ -143,7 +146,7 @@ Router.prototype.onClick = function(e) {
 	var path = el.pathname + el.search + (el.hash || '');
 
 	// Make sure the base is present if set
-	if (this._base && path.indexOf(this._base) === 0) {
+	if (this._base && path.indexOf(this._base) !== 0) {
 		return;
 	}
 
@@ -168,12 +171,17 @@ Router.prototype._processRequest = function(url, replace) {
 	// Push the state
 	history[replace ? 'replaceState' : 'pushState']({path: url}, null, url);
 
+	// Strip the base off before routing
+	if (this._base) {
+		url = url.replace(this._base, '');
+	}
+
 	// Run the route matching
 	this({
 		method: 'GET',
 		url: url
-	}, {}, function() {
-		console.log(404);
+	}, {}, function(e) {
+		console.log(404, e);
 	});
 };
 
