@@ -5,14 +5,15 @@
   "main": "index.js",
   "keywords": [
     "router",
-	"express",
-	"browser"
+    "express",
+    "browser"
   ],
   "directories": {
     "example": "example"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mochify",
+    "test-cover": "mochify --cover",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
@@ -25,6 +26,6 @@
   },
   "repository": {
     "type": "git",
-	"url": "git://github.com/wesleytodd/nighthawk.git"
+    "url": "git://github.com/wesleytodd/nighthawk.git"
   }
 }
