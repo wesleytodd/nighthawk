@@ -1,7 +1,5 @@
 # A wrapper around Express' router for the browser
 
-THIS IS A WIP.  NOT READY FOR USE.
-
 Requires HTML5 `pushState` api.
 
 Example:
@@ -25,3 +23,9 @@ $ npm run example
 ```
 
 Visit [http://localhost:1234](http://localhost:1234).
+
+### Tests
+
+```
+$ npm run test
+```
