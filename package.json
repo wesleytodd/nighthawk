@@ -1,6 +1,6 @@
 {
   "name": "nighthawk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A client-side wrapper for the Express router",
   "main": "index.js",
   "keywords": [
@@ -12,8 +12,8 @@
     "example": "example"
   },
   "scripts": {
-    "test": "mochify",
-    "test-cover": "mochify --cover",
+    "test": "./node_modules/mochify/bin/cmd.js",
+    "test-cover": "./node_modules/mochify/bin/cmd.js --cover",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
@@ -27,5 +27,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/wesleytodd/nighthawk.git"
+  },
+  "devDependencies": {
+    "mochify": "^2.7.0"
   }
 }
