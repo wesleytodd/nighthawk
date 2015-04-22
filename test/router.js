@@ -53,95 +53,6 @@ describe('Router', function() {
 		});
 	});
 
-	it('should not intercept clicks when keys certain modifier keys were pressed or default was prevented', function() {
-		router._processRequest(function() {
-			throw new Error('Should not have been called!!');
-		});
-
-		router.onClick({
-			button: 2
-		});
-		router.onClick({
-			metaKey: true
-		});
-		router.onClick({
-			shiftKey: true
-		});
-		router.onClick({
-			defaultPrevented: true
-		});
-	});
-
-	it('should not intercept clicks when not on a link', function() {
-		router._processRequest(function() {
-			throw new Error('Should not have been called!!');
-		});
-
-		event.target = document.getElementsByTagName('body')[0];
-
-		router.onClick(event);
-	});
-
-	it('should not intercept clicks when the element has download', function() {
-		router._processRequest(function() {
-			throw new Error('Should not have been called!!');
-		});
-
-		event.target = document.createElement('a');
-		event.target.setAttribute('download');
-
-		router.onClick(event);
-	});
-
-	it('should not intercept clicks when the element has rel', function() {
-		router._processRequest(function() {
-			throw new Error('Should not have been called!!');
-		});
-
-		event.target = document.createElement('a');
-		event.target.setAttribute('rel', 'nofollow');
-
-		router.onClick(event);
-	});
-
-	it('should not intercept clicks when the path is the same but the hash changed', function() {
-		router._processRequest(function() {
-			throw new Error('Should not have been called!!');
-		});
-
-		window.location = '/';
-
-		event.target = document.createElement('a');
-		event.target.setAttribute('href', '/#test');
-
-		router.onClick(event);
-	});
-
-	it('should not intercept clicks when the path is a mailto link', function() {
-		router._processRequest(function() {
-			throw new Error('Should not have been called!!');
-		});
-
-		event.target = document.createElement('a');
-		event.target.setAttribute('href', 'mailto:test@tester.com');
-
-		router.onClick(event);
-	});
-
-	it('should not intercept clicks when the link is to a different origin', function() {
-		router._processRequest(function() {
-			throw new Error('Should not have been called!!');
-		});
-
-		event.target = document.createElement('a');
-
-		event.target.setAttribute('href', 'http://tester.com');
-		router.onClick(event);
-
-		event.target.setAttribute('href', '//tester.com');
-		router.onClick(event);
-	});
-
 	it('should not intercept clicks when the link does not start with the base url', function() {
 		router._processRequest(function() {
 			throw new Error('Should not have been called!!');
@@ -151,7 +62,7 @@ describe('Router', function() {
 		event.target = document.createElement('a');
 		event.target.setAttribute('href', '/foo');
 
-		router.onClick(event);
+		router.onClick(event, event.target);
 	});
 
 	it('should not intercept clicks when the link does not start with the base url', function(done) {
@@ -163,7 +74,7 @@ describe('Router', function() {
 		event.target.setAttribute('href', '/');
 
 		assert.doesNotThrow(function() {
-			router.onClick(event);
+			router.onClick(event, event.target);
 		});
 	});
 
@@ -177,7 +88,7 @@ describe('Router', function() {
 		event.target = document.createElement('a');
 		event.target.setAttribute('href', '/foo?bar=bar#baz');
 
-		router.onClick(event);
+		router.onClick(event, event.target);
 	});
 
 });

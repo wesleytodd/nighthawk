@@ -22,6 +22,7 @@
   "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
+    "intercept-link-clicks": "^1.0.0",
     "router": "^1.0.0"
   },
   "repository": {
