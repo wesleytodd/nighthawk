@@ -1,7 +1,7 @@
-var app = require('express')(),
-	static = require('serve-static'),
-	ejs = require('consolidate').ejs,
-	routes = require('./routes');
+var app = require('express')();
+var serveStatic = require('serve-static');
+var ejs = require('consolidate').ejs;
+var routes = require('./routes');
 
 app.engine('html', ejs);
 app.set('view engine', 'html');
@@ -11,7 +11,7 @@ app.set('views', 'templates');
 routes(app);
 
 // Serve static assets
-app.use('/static', static('.'));
+app.use('/static', serveStatic('.'));
 
 // Start server
 app.listen('1234');

@@ -1,6 +1,6 @@
-var polyfills = require('../../lib/polyfills'),
-	router = require('../../')({base: '/base'}),
-	routes = require('./routes');
+require('../../lib/polyfills');
+var router = require('../../')({base: '/base'});
+var routes = require('./routes');
 
 routes(router);
 router.listen();

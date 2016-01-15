@@ -1,9 +1,9 @@
-var express = require('express'),
-	app = express(),
-	appbase = express(),
-	static = require('serve-static'),
-	ejs = require('consolidate').ejs,
-	routes = require('./routes');
+var express = require('express');
+var app = express();
+var appbase = express();
+var serveStatic = require('serve-static');
+var ejs = require('consolidate').ejs;
+var routes = require('./routes');
 
 app.engine('html', ejs);
 app.set('view engine', 'html');
@@ -13,7 +13,7 @@ app.set('views', 'templates');
 routes(app);
 
 // Serve static assets on base app
-appbase.use('/static', static('.'));
+appbase.use('/static', serveStatic('.'));
 
 // Mount child app on base app
 appbase.use('/base', app);

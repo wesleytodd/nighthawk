@@ -12,17 +12,16 @@
     "example": "example"
   },
   "scripts": {
-    "test": "./node_modules/mochify/bin/cmd.js",
-    "test-cover": "./node_modules/mochify/bin/cmd.js --cover",
+    "test": "happiness && mochify",
+    "test-cover": "mochify --cover",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
-    "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
-    "jshint": "jshint router.js index.js supports-push-state.js"
+    "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start"
   },
   "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
-    "intercept-link-clicks": "^1.0.0",
+    "intercept-link-clicks": "^1.0.1",
     "router": "^1.0.0"
   },
   "repository": {
@@ -30,6 +29,7 @@
     "url": "git://github.com/wesleytodd/nighthawk.git"
   },
   "devDependencies": {
-    "mochify": "^2.7.0"
+    "mochify": "^2.7.0",
+	"happiness": "JedWatson/happiness"
   }
 }
