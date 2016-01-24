@@ -1,0 +1,28 @@
+{
+  "name": "nighthawk-react-example",
+  "version": "1.0.0",
+  "description": "An example of nighthawk with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run browserify && node index.js",
+    "browserify": "browserify client.js -t [babelify] -o client-build.js"
+  },
+  "author": "Wes Todd",
+  "license": "ISC",
+  "dependencies": {
+    "babel-register": "^6.4.3",
+    "consolidate": "^0.10.0",
+    "ejs": "^2.2.4",
+    "express": "^4.11.2",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "serve-static": "^1.8.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0"
+  }
+}
