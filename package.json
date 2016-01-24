@@ -28,8 +28,8 @@
   "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
-    "intercept-link-clicks": "^1.0.1",
-    "router": "^1.0.0"
+    "intercept-link-clicks": "^1.0.2",
+    "router": "^1.1.4"
   },
   "repository": {
     "type": "git",
