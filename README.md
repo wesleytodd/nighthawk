@@ -8,7 +8,7 @@ Unlike some other recent front-end routing attempts _(\*\*cough react-router, an
 
 It is also relatively small, weighing in at 19kb minified and gzipped.  If you are using browserify you are probably already bundling modules like `buffer` and `process`, so if you don't count those we only add 8kb total.  This is a fair bit smaller than other comparable libraries for front-end routing.  You can see for yourself by running `npm run disc`, which will open a breakdown of where the file size comes from and display the minified and gzipped file size (`File size: 8198 bytes gzipped`).
 
-Requires HTML5 `history` api, aka `pushState`.  This module does not support hash based routing (who is actually supporting IE9 anymore anyway?).
+**NOTE**: Requires HTML5 `history` api, aka `pushState`.  This module does not support hash based routing (who is actually supporting IE9 anymore anyway? Not even Microsoft is...).
 
 ### Example:
 
