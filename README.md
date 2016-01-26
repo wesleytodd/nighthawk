@@ -1,6 +1,10 @@
 # A wrapper around Express' router for the browser
 
-[![js-happiness-style](https://cdn.rawgit.com/JedWatson/happiness/master/badge.svg)](https://github.com/JedWatson/happiness)
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![Build Status](https://travis-ci.org/wesleytodd/nighthawk.svg?branch=master)](https://travis-ci.org/wesleytodd/nighthawk)
+[![js-happiness-style](https://img.shields.io/badge/code%20style-happiness-brightgreen.svg)](https://github.com/JedWatson/happiness)
+[![Sauce Test Status](https://saucelabs.com/buildstatus/wesleytodd123)](https://saucelabs.com/u/wesleytodd123)
 
 The Express Router is great!  It is reliable and really simple.  With Express 5.0 the router module was pulled out into a stand-alone package, so I figured, why not see if it runs in the browser.  Sure enough, it did!  So this is a wrapper around the [Express Router](https://github.com/pillarjs/router) package that layers on browser push state based location updates.  I was heavily influenced by [Page.js](https://visionmedia.github.io/page.js/) and use a very similar method to transparently catch page changes events.
 
@@ -63,3 +67,8 @@ $ npm test
 ```
 
 <a name="fn1" href="#fn1">[1]</a>: In opinionated frameworks this is not really that big of a deal because you are already tied down to an ecosystem that probably works really well.  But in a "pick your own adventure" style application it is much nicer to have less coupling.
+
+[npm-image]: https://img.shields.io/npm/v/nighthawk.svg
+[npm-url]: https://npmjs.org/package/nighthawk
+[downloads-image]: https://img.shields.io/npm/dm/nighthawk.svg
+[downloads-url]: https://npmjs.org/package/nighthawk

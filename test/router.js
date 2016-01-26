@@ -3,14 +3,14 @@ var Router = require('../lib/router');
 var assert = require('assert');
 
 describe('Router', function () {
-	var router, event;
+	var router, evt;
 	beforeEach(function () {
 		if (router) {
 			router.destroy();
 		}
 		router = Router();
 
-		event = {
+		evt = {
 			which: 1,
 			preventDefault: function () {}
 		};
@@ -27,32 +27,23 @@ describe('Router', function () {
 		router.get('/', function () {});
 	});
 
-	it('should start listening to changes', function (done) {
-		router.get('/', function (req, res) {
-			assert.equal(req.path, '/', 'Did not match route path correctly');
+	it('BROWSER: should start listening to changes', function (done) {
+		router.get('/webdriver.html', function (req, res) {
+			assert.equal(req.path, '/webdriver.html', 'Did not match route path correctly');
 			done();
 		});
 
 		assert.doesNotThrow(function () {
-			window.location = '/';
 			router.listen();
 		});
 	});
 
-	// This is skipped because it is clearly a bad test,
-	// The only reason this originally passed was because
-	// the route handler was being called even tho it looked
-	// like the same route
-	it.skip('should process route on popstate', function (done) {
-		var called = 0;
-		router.get('/', function (req, res) {
-			called++;
-			console.log('called', req.url);
-			if (called === 2) done();
+	it('BROWSER: should process route on popstate', function (done) {
+		router.get('/webdriver.html', function (req, res) {
+			done();
 		});
 
 		assert.doesNotThrow(function () {
-			window.location = '/';
 			router.listen();
 			window.history.pushState(null, null, '/foo');
 			window.history.back();
@@ -60,27 +51,33 @@ describe('Router', function () {
 	});
 
 	it('should not intercept clicks when the link does not start with the base url', function () {
-		router._processRequest(function () {
+		router._processRequest = function () {
 			throw new Error('Should not have been called!!');
-		});
+		};
 		router.base('/base');
 
-		event.target = document.createElement('a');
-		event.target.setAttribute('href', '/foo');
+		evt.target = document.createElement('a');
+		evt.target.setAttribute('href', '/foo');
 
-		router.onClick(event, event.target);
+		router.onClick(evt, evt.target);
 	});
 
-	it('should intercept clicks when the link does not start with the base url', function (done) {
-		router.get('/', function (req, res) {
+	it('should intercept clicks', function (done) {
+		router.get('/foo', function (req, res) {
 			done();
 		});
 
-		event.target = document.createElement('a');
-		event.target.setAttribute('href', '/');
+		evt.target = document.createElement('a');
+		evt.target.setAttribute('href', '/foo');
+
+		// A workaround for IE not adding the leading slash when
+		// the anchor is not added to the dom
+		if (typeof window !== 'undefined') {
+			window.document.body.appendChild(evt.target);
+		}
 
 		assert.doesNotThrow(function () {
-			router.onClick(event, event.target);
+			router.onClick(evt, evt.target);
 		});
 	});
 
@@ -91,9 +88,15 @@ describe('Router', function () {
 			assert.equal(url.hash, '#baz', 'Incorrect hash');
 		};
 
-		event.target = document.createElement('a');
-		event.target.setAttribute('href', '/foo?bar=bar#baz');
+		evt.target = document.createElement('a');
+		evt.target.setAttribute('href', '/foo?bar=bar#baz');
 
-		router.onClick(event, event.target);
+		// A workaround for IE not adding the leading slash when
+		// the anchor is not added to the dom
+		if (typeof window !== 'undefined') {
+			window.document.body.appendChild(evt.target);
+		}
+
+		router.onClick(evt, evt.target);
 	});
 });

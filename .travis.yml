@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "0.12"
+  - "1.8"
+  - "2.5"
+  - "3.3"
+  - '4.2'
+  - '5.5'
+
+env:
+  global:
+    - SAUCE_USERNAME="wesleytodd123"
+    - secure: "BQRIKyk7XSk7kNzXHq3iKz8Gr7I3WeaR7BwLdpHNeipJR+pLfSLtD2UVxKZJ1WAB4HC/lz5NUYOm3d+BhhOSSZKpPCCJRX44DmMhVAg7Z8htBkm1jIBnmZbrYW9irfnpy1mCjcvfirIak2lcKwo3KBNCC1zME4529wiEwyU4HWaFLJUmpYsVOGNdwMdn3b5YNxlpz4F78PKCHiGWoZYfC0fPiXGbKzSm7PlbjK07KWqZ7nCX1c99lnpDuuEEvD2sbQMye8NicwaXff9TKKYT4m3hxtyJpHv1dcUuB0wjJSoVVJmtPLR7DgZ3EwSCdH7ZN9KSMiGmN6BtuSL8GnVAdX2KKj4/46pvA1q6ZnXWDymwMTc4f4qOV2VFQ2Z/FO/vVv4x2axsJ4WQFld826FDnA8YagSW9Dae1pNCNHuLibZkxiTwCtYJq2/3zbbO6TmvQM0P2b7E4ot7MzhAwSI2zhAmIxPIkecnXFhpueegYKqX7uNnSmW2SOYoMUOvnOUzvXSZhndPLmboCuSdTW0c/FDyH8/mjInXt8hWEG8Xdr2/VpPvgs7pMW/bc27vZ+rqIfLWA0wf68nOeIQwlFUcoyQVc9lr26MU9fJEQHPkuqUjZ8EYhPYnS4mQIiwStSPr7W2TXgfRYPjRHnlEMZvA9hSICLsj5z0OlZ1JrfATc04="
+
+script:
+  - 'npm test'
+  - 'if [ "x$TRAVIS_NODE_VERSION" = "x5.5" ]; then npm run test-browser; fi'
