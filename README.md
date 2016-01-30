@@ -50,6 +50,10 @@ router.get('/bar', function(req, res) {
 router.listen();
 ```
 
+### What happens when `history` is not supported
+
+It just falls back to basic HTML link behavior.  Thats the great thing about this pattern, it builds on top of basic building blocks of the web.  Also, if it is not supported, your route will still run, so you can still use Nighthawk to kick off your application in unsupported browsers.
+
 ### Run the examples
 
 ```
