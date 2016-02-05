@@ -1,6 +1,10 @@
-require('../../lib/polyfills');
-var router = require('../../')({base: '/base'});
-var routes = require('./routes');
+var router = require('../../lib/application')();
 
-routes(router);
+// Set mount path
+router.mountpath = '/base';
+
+// Register routes
+require('./routes')(router);
+
+// Start router listening
 router.listen();

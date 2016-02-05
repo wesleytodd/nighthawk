@@ -1,19 +1,12 @@
+var browserify = require('browserify-middleware');
 var express = require('express');
 var app = express();
 var appbase = express();
-var serveStatic = require('serve-static');
-var ejs = require('consolidate').ejs;
-var routes = require('./routes');
 
-app.engine('html', ejs);
-app.set('view engine', 'html');
-app.set('views', 'templates');
+appbase.use('/static/client.js', browserify(__dirname + '/client.js'));
 
 // Register routes on child app
-routes(app);
-
-// Serve static assets on base app
-appbase.use('/static', serveStatic('.'));
+require('./routes')(app);
 
 // Mount child app on base app
 appbase.use('/base', app);

@@ -1,5 +1,6 @@
 /* global describe, it, beforeEach */
 var Application = require('../lib/application');
+var processRouteChange = require('../lib/util/process-route-change');
 var assert = require('assert');
 var app;
 
@@ -64,6 +65,41 @@ describe('Application', function () {
 			assert.equal(app.mountpath, '/');
 			assert.equal(blog.mountpath, '/blog');
 			assert.equal(fallback.mountpath, '/');
+		});
+	});
+
+	describe('methods', function () {
+		it('should include GET', function (done) {
+			app.get('/foo', function (req, res) {
+				done();
+			});
+
+			processRouteChange(app, {
+				pathname: '/foo'
+			});
+		});
+	});
+
+	it('BROWSER: should start listening to changes', function (done) {
+		app.get('/webdriver.html', function (req, res) {
+			assert.equal(req.path, '/webdriver.html', 'Did not match route path correctly');
+			done();
+		});
+
+		assert.doesNotThrow(function () {
+			app.listen();
+		});
+	});
+
+	it('BROWSER: should process route on popstate', function (done) {
+		app.get('/webdriver.html', function (req, res) {
+			done();
+		});
+
+		assert.doesNotThrow(function () {
+			app.listen();
+			window.history.pushState(null, null, '/foo');
+			window.history.back();
 		});
 	});
 });

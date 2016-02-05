@@ -5,15 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run browserify && node server.js",
-    "browserify": "browserify client.js > client-build.js"
+    "start": "node server.js"
   },
   "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
-    "consolidate": "^0.10.0",
-    "ejs": "^2.2.4",
     "express": "^4.11.2",
-    "serve-static": "^1.8.1"
+    "browserify-middleware": "^7.0.0"
   }
 }

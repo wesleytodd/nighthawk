@@ -1,17 +1,11 @@
+var browserify = require('browserify-middleware');
 var app = require('express')();
-var serveStatic = require('serve-static');
-var ejs = require('consolidate').ejs;
-var routes = require('./routes');
-
-app.engine('html', ejs);
-app.set('view engine', 'html');
-app.set('views', 'templates');
 
 // Register routes
-routes(app);
+require('./routes')(app);
 
 // Serve static assets
-app.use('/static', serveStatic('.'));
+app.use('/static/client.js', browserify(__dirname + '/client.js'));
 
 // Start server
 app.listen('1234');

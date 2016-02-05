@@ -1,5 +1,3 @@
 var router = require('../../')();
-var routes = require('./routes');
-
-routes(router);
+require('./routes')(router);
 router.listen();
