@@ -99,4 +99,14 @@ describe('Router', function () {
 
 		router.onClick(evt, evt.target);
 	});
+
+	it('should change the route', function () {
+		router._processRequest = function (url) {
+			assert.equal(url.pathname, '/foo', 'Incorrect pathname');
+			assert.equal(url.search, '?bar=bar', 'Incorrect search');
+			assert.equal(url.hash, '#baz', 'Incorrect hash');
+		};
+
+		router.changeRoute('/foo?bar=bar#baz');
+	});
 });
