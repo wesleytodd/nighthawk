@@ -1,6 +1,6 @@
 {
   "name": "nighthawk",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A client-side wrapper for the Express router",
   "main": "index.js",
   "keywords": [
@@ -21,7 +21,7 @@
     "size": "stat -f \"File size: %z bytes gzipped\" dist/nighthawk.min.js.gz",
     "test": "happiness && mochify --grep 'BROWSER: ' --invert",
     "test-cover": "mochify --cover",
-	"test-browser": "mochify --wd",
+    "test-browser": "mochify --wd",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start"
