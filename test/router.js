@@ -22,6 +22,16 @@ describe('Router', function () {
 		assert.equal(router.base(), p, 'Did not set and get base path');
 	});
 
+	it('should correctly set path with a base path', function (done) {
+		router.base('/test');
+		router.use(function (req, res) {
+			assert.equal(req.path, '/foo', 'Failed to set req.path with a base path');
+			done();
+		});
+		router.listen({dispatch: false});
+		router.changeRoute('/test/foo');
+	});
+
 	it('should start register routes like the base router', function () {
 		router.use(function () {});
 		router.get('/', function () {});
