@@ -25,7 +25,7 @@
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
-    "prepublish": "npm t",
+    "prepublish": "npm run dist && npm t",
     "postpublish": "git push && git push --tags"
   },
   "author": "Wes Todd",
@@ -39,10 +39,10 @@
     "url": "git://github.com/wesleytodd/nighthawk.git"
   },
   "devDependencies": {
-    "browserify": "^13.0.0",
+    "browserify": "^14.1.0",
     "disc": "^1.3.2",
-    "happiness": "JedWatson/happiness",
-    "mochify": "^2.15.0",
-    "uglifyjs": "^2.4.10"
+    "happiness": "^7.1.2",
+    "mochify": "^3.1.0",
+    "uglify-js": "^2.8.16"
   }
 }
