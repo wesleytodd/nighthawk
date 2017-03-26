@@ -12,7 +12,7 @@
     "example": "example"
   },
   "scripts": {
-    "dist": "mkdir -p dist && npm run build && npm run minify && npm run gzip && npm run size",
+    "dist": "mkdir -p dist && npm run build && npm run minify && npm run gzip",
     "disc": "mkdir -p dist && npm run build-dev && npm run minify && discify dist/nighthawk.min.js -O && npm run gzip && npm run size",
     "build": "browserify index.js -s Nighthawk -o dist/nighthawk.js",
     "build-dev": "browserify index.js --full-paths -u buffer -u url -u util -u process -o dist/nighthawk.js",
@@ -21,7 +21,7 @@
     "size": "stat -f \"File size: %z bytes gzipped\" dist/nighthawk.min.js.gz",
     "test": "happiness && mochify --grep 'BROWSER: ' --invert",
     "test-cover": "mochify --cover",
-    "test-browser": "mochify --wd",
+    "test-browser": "happiness && mochify --wd",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
