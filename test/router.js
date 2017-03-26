@@ -9,7 +9,7 @@ describe('Router', function () {
 			window.history.pushState('/', null, '/');
 			router.destroy();
 		}
-		router = Router();
+		router = new Router();
 
 		evt = {
 			which: 1,
@@ -119,5 +119,17 @@ describe('Router', function () {
 		};
 
 		router.changeRoute('/foo?bar=bar#baz');
+	});
+
+	it('should parse the query string', function (done) {
+		router = new Router({
+			parseQuerystring: true
+		});
+
+		router.use(function (req, res) {
+			assert.equal(req.query.foo, 'bar');
+			done();
+		});
+		router.changeRoute('/test?foo=bar');
 	});
 });
