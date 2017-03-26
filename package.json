@@ -31,6 +31,7 @@
   "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
+    "inherits": "^2.0.3",
     "intercept-link-clicks": "^1.0.2",
     "router": "^1.1.4"
   },
