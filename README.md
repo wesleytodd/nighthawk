@@ -19,7 +19,7 @@ It is also relatively small, weighing in at 19kb minified and gzipped.  If you a
 and `process`, so if you don't count those we only add 8kb total.  This is a fair bit smaller than other comparable libraries for front-end routing.  You 
 can see for yourself by running `npm run disc`, which will open a breakdown of where the file size comes from and display the minified and gzipped file size (`File size: 8198 bytes gzipped`).
 
-**NOTE**: Requires HTML5 `history` api, aka `pushState`.  This module does not support hash based routing (who is actually supporting IE9 anymore anyway? Not even Microsoft is...).
+**NOTE**: Requires HTML5 `history` api, aka `pushState`.  This module does not support hash based routing.
 
 ### Example:
 
