@@ -26,7 +26,7 @@
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
     "prepublish": "npm t",
-    "postoublish": "git push && git push --tags"
+    "postpublish": "git push && git push --tags"
   },
   "author": "Wes Todd",
   "license": "ISC",
