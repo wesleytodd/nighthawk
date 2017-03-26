@@ -24,7 +24,9 @@
     "test-browser": "mochify --wd",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
-    "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start"
+    "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
+    "prepublish": "npm t",
+    "postoublish": "git push && git push --tags"
   },
   "author": "Wes Todd",
   "license": "ISC",
