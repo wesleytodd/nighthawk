@@ -1,3 +1,5 @@
+'use strict';
+
 // Expose the Router constructor
 module.exports = require('./lib/router');
 
