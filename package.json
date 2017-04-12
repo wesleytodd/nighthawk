@@ -21,7 +21,7 @@
     "size": "stat -f \"File size: %z bytes gzipped\" dist/nighthawk.min.js.gz",
     "test": "happiness && mochify -r qs --grep 'BROWSER: ' --invert",
     "test-cover": "mochify --cover",
-    "test-browser": "happiness && mochify --wd",
+    "test-browser": "happiness && mochify --wd -r qs",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
