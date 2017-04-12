@@ -19,9 +19,9 @@
     "minify": "uglifyjs dist/nighthawk.js -mc -o dist/nighthawk.min.js",
     "gzip": "gzip -c dist/nighthawk.min.js > dist/nighthawk.min.js.gz",
     "size": "stat -f \"File size: %z bytes gzipped\" dist/nighthawk.min.js.gz",
-    "test": "happiness && mochify --grep 'BROWSER: ' --invert",
+    "test": "happiness && mochify -r qs --grep 'BROWSER: ' --invert",
     "test-cover": "mochify --cover",
-    "test-browser": "happiness && mochify --wd",
+    "test-browser": "happiness && mochify --wd -r qs",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
@@ -43,7 +43,8 @@
     "browserify": "^14.1.0",
     "disc": "^1.3.2",
     "happiness": "^7.1.2",
-    "mochify": "^3.1.0",
+    "mochify": "^3.1.1",
+    "qs": "^6.4.0",
     "uglify-js": "^2.8.16"
   }
 }
