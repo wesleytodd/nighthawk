@@ -72,6 +72,18 @@ describe('Router', function () {
 		router.onClick(evt, evt.target);
 	});
 
+	it('should not intercept clicks when data-skip-router is specified', function () {
+		router._processRequest = function () {
+			throw new Error('Should not have been called!!');
+		};
+
+		evt.target = document.createElement('a');
+		evt.target.setAttribute('href', '/foo');
+		evt.target.setAttribute('data-skip-router', '');
+
+		router.onClick(evt, evt.target);
+	});
+
 	it('should intercept clicks', function (done) {
 		router.get('/foo', function (req, res) {
 			done();
