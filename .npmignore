@@ -3,3 +3,5 @@ npm-debug.log
 test
 .travis.yml
 .min-wd
+.gitignore
+dist/nighthawk.min.js.gz

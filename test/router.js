@@ -6,9 +6,10 @@ describe('Router', function () {
 	var router, evt;
 	beforeEach(function () {
 		if (router) {
+			window.history.pushState('/', null, '/');
 			router.destroy();
 		}
-		router = Router();
+		router = new Router();
 
 		evt = {
 			which: 1,
@@ -38,8 +39,8 @@ describe('Router', function () {
 	});
 
 	it('BROWSER: should start listening to changes', function (done) {
-		router.get('/webdriver.html', function (req, res) {
-			assert.equal(req.path, '/webdriver.html', 'Did not match route path correctly');
+		router.get('/', function (req, res) {
+			assert.equal(req.path, '/', 'Did not match route path correctly');
 			done();
 		});
 
@@ -49,7 +50,7 @@ describe('Router', function () {
 	});
 
 	it('BROWSER: should process route on popstate', function (done) {
-		router.get('/webdriver.html', function (req, res) {
+		router.get('/', function (req, res) {
 			done();
 		});
 
@@ -118,5 +119,17 @@ describe('Router', function () {
 		};
 
 		router.changeRoute('/foo?bar=bar#baz');
+	});
+
+	it('should parse the query string', function (done) {
+		router = new Router({
+			parseQuerystring: true
+		});
+
+		router.use(function (req, res) {
+			assert.equal(req.query.foo, 'bar');
+			done();
+		});
+		router.changeRoute('/test?foo=bar');
 	});
 });

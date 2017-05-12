@@ -1,6 +1,6 @@
 {
   "name": "nighthawk",
-  "version": "1.4.4",
+  "version": "2.0.0-BETA-3",
   "description": "A client-side wrapper for the Express router",
   "main": "index.js",
   "keywords": [
@@ -12,25 +12,26 @@
     "example": "example"
   },
   "scripts": {
-    "dist": "mkdir -p dist && npm run build && npm run minify && npm run gzip && npm run size",
+    "dist": "mkdir -p dist && npm run build && npm run minify && npm run gzip",
     "disc": "mkdir -p dist && npm run build-dev && npm run minify && discify dist/nighthawk.min.js -O && npm run gzip && npm run size",
     "build": "browserify index.js -s Nighthawk -o dist/nighthawk.js",
     "build-dev": "browserify index.js --full-paths -u buffer -u url -u util -u process -o dist/nighthawk.js",
     "minify": "uglifyjs dist/nighthawk.js -mc -o dist/nighthawk.min.js",
     "gzip": "gzip -c dist/nighthawk.min.js > dist/nighthawk.min.js.gz",
     "size": "stat -f \"File size: %z bytes gzipped\" dist/nighthawk.min.js.gz",
-    "test": "happiness && mochify --grep 'BROWSER: ' --invert",
+    "test": "happiness && mochify -r qs --grep 'BROWSER: ' --invert",
     "test-cover": "mochify --cover",
-    "test-browser": "mochify --wd",
+    "test-browser": "happiness && mochify --wd -r qs",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
-    "prepublish": "npm t",
+    "prepublish": "npm run dist && npm t",
     "postpublish": "git push && git push --tags"
   },
   "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
+    "inherits": "^2.0.3",
     "intercept-link-clicks": "^1.0.2",
     "router": "^1.1.4"
   },
@@ -39,10 +40,11 @@
     "url": "git://github.com/wesleytodd/nighthawk.git"
   },
   "devDependencies": {
-    "browserify": "^13.0.0",
+    "browserify": "^14.1.0",
     "disc": "^1.3.2",
-    "happiness": "JedWatson/happiness",
-    "mochify": "^2.15.0",
-    "uglifyjs": "^2.4.10"
+    "happiness": "^7.1.2",
+    "mochify": "^3.1.1",
+    "qs": "^6.4.0",
+    "uglify-js": "^2.8.16"
   }
 }
