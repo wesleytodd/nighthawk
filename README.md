@@ -74,6 +74,20 @@ var router = new Nighthawk({
 
 *Note:* The `parseQuerystring` option is deprecated as of `2.1.0`, and will be removed in `3.0.0`.
 
+### Listen Options
+
+There are a few options you can pass to the `listen` call:
+
+- `popstate`: When `false`, Nighthawk will not listen for `popstate` events
+- `interceptClicks`: When `false`, Nighthawk will not listen for link `click` events
+- `dispatch`: When `false`, Nighthawk will not process the initial route on listen
+
+### Manually change url and run middleware stack
+
+In case you have some event on the page which is not a normal link click or popstate, you can
+call `router.changeRoute('/your/url')`, and the Nighthawk instance will run the route processing.
+This is helpful for things like form submissions and actions which should prompt users to login.
+
 ### What happens when `history` is not supported?
 
 It just falls back to basic HTML link behavior.  Thats the great thing about this pattern, it builds on top of basic building blocks of the web.  Also, 
