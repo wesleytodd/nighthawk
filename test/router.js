@@ -1,6 +1,7 @@
 /* global describe, beforeEach, it */
 var Router = require('../lib/router');
 var assert = require('assert');
+var qs = require('qs');
 
 describe('Router', function () {
 	var router, evt;
@@ -123,7 +124,7 @@ describe('Router', function () {
 
 	it('should parse the query string', function (done) {
 		router = new Router({
-			parseQuerystring: true
+			queryParser: qs.parse
 		});
 
 		router.use(function (req, res) {

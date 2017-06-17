@@ -4,4 +4,6 @@ test
 .travis.yml
 .min-wd
 .gitignore
-dist/nighthawk.min.js.gz
+dist/*.gz
+dist/nighthawk-slim*
+scripts
