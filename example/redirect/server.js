@@ -14,4 +14,6 @@ routes(app);
 app.use('/static', serveStatic('.'));
 
 // Start server
-app.listen('1234');
+app.listen('1234', function () {
+	console.log('Listening on 1234');
+});

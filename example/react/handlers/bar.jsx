@@ -1,7 +1,7 @@
 var React = require('react');
 
 module.exports = function (req, res) {
-	res.renderReactComponent(Page, res.locals);
+	res.renderReactComponent(Page);
 };
 
 var Page = React.createClass({

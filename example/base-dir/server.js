@@ -19,4 +19,6 @@ appbase.use('/static', serveStatic('.'));
 appbase.use('/base', app);
 
 // Start server
-appbase.listen('1234');
+app.listen('1234', function () {
+	console.log('Listening on 1234');
+});

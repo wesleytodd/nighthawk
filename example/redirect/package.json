@@ -1,20 +1,22 @@
 {
-  "name": "router-testing",
+  "name": "nighthawk-redirect-example",
   "version": "1.0.0",
-  "description": "",
-  "main": "client.js",
+  "description": "An example of nighthawk with a redirect",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "npm run browserify && node server.js",
     "browserify": "browserify client.js > client-build.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browserify": "^14.4.0",
     "consolidate": "^0.10.0",
     "ejs": "^2.2.4",
     "express": "^4.11.2",
-    "router": "^1.0.0",
+    "is-browser": "^2.0.1",
+    "nighthawk": "file:../..",
     "serve-static": "^1.8.1"
   }
 }

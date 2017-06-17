@@ -1,5 +1,5 @@
 {
-  "name": "express-basi-dir-example",
+  "name": "express-base-dir-example",
   "version": "1.0.0",
   "description": "An example of using nighthawk on a sub path",
   "main": "server.js",
@@ -11,9 +11,12 @@
   "author": "Wes Todd",
   "license": "ISC",
   "dependencies": {
+    "browserify": "^14.4.0",
     "consolidate": "^0.10.0",
     "ejs": "^2.2.4",
     "express": "^4.11.2",
+    "is-browser": "^2.0.1",
+    "nighthawk": "file:../..",
     "serve-static": "^1.8.1"
   }
 }

@@ -1,4 +1,6 @@
-var router = require('../../')({base: '/base'});
+var router = require('nighthawk')({
+	base: '/base'
+});
 var routes = require('./routes');
 
 routes(router);

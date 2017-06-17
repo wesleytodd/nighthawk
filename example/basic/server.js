@@ -7,11 +7,13 @@ app.engine('html', ejs);
 app.set('view engine', 'html');
 app.set('views', 'templates');
 
-// Register routes
+// Register routes on child app
 routes(app);
 
-// Serve static assets
+// Serve static assets on base app
 app.use('/static', serveStatic('.'));
 
 // Start server
-app.listen('1234');
+app.listen('1234', function () {
+	console.log('Listening on 1234');
+});

@@ -63,7 +63,7 @@ router.listen();
 
 Nighthawk can setup querystirng parsing for you, just pass the desired parsing funciton as `queryParser`.  For example:
 
-```
+```javascript
 var router = new Nighthawk({
 	queryParser: require('querystring').parse
 
