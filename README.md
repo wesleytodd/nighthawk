@@ -59,6 +59,11 @@ router.get('/bar', function(req, res) {
 router.listen();
 ```
 
+If have routes which match your base path but require full server rendered page refreshes, you
+can use the `reloadOnUnhandled` option to have Nighthawk force the browser to reload from the server with the new
+route when the final handler is hit.  By setting this option to true, the final handler will force the browser to
+reload the page from the server via `window.location = <new url>`.
+
 ### Parsing Querystring's
 
 Nighthawk can setup querystirng parsing for you, just pass the desired parsing funciton as `queryParser`.  For example:
