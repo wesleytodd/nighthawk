@@ -7,7 +7,6 @@ describe('Router', function () {
   var router, evt
   beforeEach(function () {
     if (router) {
-      window.history.pushState('/', null, '/')
       router.destroy()
     }
     router = new Router()
