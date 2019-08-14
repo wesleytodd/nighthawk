@@ -15,9 +15,9 @@
     "build": "./scripts/build.sh",
     "size": "./scripts/size.sh",
     "check": "npm-check",
-    "test": "happiness && mochify --grep 'BROWSER: ' --invert",
+    "test": "standard && mochify --grep 'BROWSER: ' --invert",
     "test-cover": "mochify --cover",
-    "test-browser": "happiness && mochify --wd",
+    "test-browser": "standard && mochify --wd",
     "example-basic": "cd example/basic && npm install && npm run browserify && npm run start",
     "example-basedir": "cd example/base-dir && npm install && npm run browserify && npm run start",
     "example-redirect": "cd example/redirect && npm install && npm run browserify && npm run start",
@@ -39,10 +39,10 @@
     "browserify": "^14.4.0",
     "disc": "^1.3.2",
     "envify": "^4.0.0",
-    "happiness": "^10.0.2",
     "mochify": "^3.1.1",
     "npm-check": "^5.4.4",
     "qs": "^6.4.0",
+    "standard": "^13.1.0",
     "uglify-js": "^3.0.17",
     "uglifyify": "^4.0.1"
   }
