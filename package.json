@@ -28,7 +28,7 @@
   "license": "ISC",
   "dependencies": {
     "inherits": "^2.0.3",
-    "intercept-link-clicks": "^1.0.2",
+    "intercept-link-clicks": "^1.1.0-0",
     "router": "^1.3.3"
   },
   "repository": {
