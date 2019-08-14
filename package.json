@@ -44,6 +44,6 @@
     "qs": "^6.4.0",
     "standard": "^13.1.0",
     "uglify-js": "^3.0.17",
-    "uglifyify": "^4.0.1"
+    "uglifyify": "^5.0.1"
   }
 }
