@@ -2,3 +2,4 @@ node_modules
 example/*/client-build.js
 npm-debug.log
 dist
+package-lock.json
