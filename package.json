@@ -3,6 +3,7 @@
   "version": "2.2.0",
   "description": "A client-side wrapper for the Express router",
   "main": "index.js",
+  "module": "index.mjs",
   "keywords": [
     "router",
     "express",
@@ -43,6 +44,9 @@
     "mochify": "^3.1.1",
     "npm-check": "^5.4.4",
     "qs": "^6.4.0",
+    "rollup": "^1.19.4",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "uglify-js": "^3.0.17",
     "uglifyify": "^4.0.1"
   }

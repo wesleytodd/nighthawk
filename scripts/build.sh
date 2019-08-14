@@ -22,3 +22,6 @@ browserify -s Nighthawk -u qs -t [envify --NODE_ENV="production"] -g uglifyify $
 # Slim dev build for disc size analysis
 echo "Building nighthawk-slim.min.js"
 browserify --full-paths -u process -u buffer -u url -u util -u qs -t [envify --NODE_ENV="production"] -g uglifyify $ROOT/index.js | uglifyjs --compress --mangle > $ROOT/dist/nighthawk-slim.min.js
+
+echo "Building nighthawk.msj"
+rollup -c
