@@ -39,8 +39,9 @@ describe('Router', function () {
   })
 
   it('BROWSER: should start listening to changes', function (done) {
+    router.base(window.location.pathname)
     router.get('/', function (req, res) {
-      assert.strictEqual(req.path, '/', 'Did not match route path correctly')
+      assert.strictEqual(req.path, '/', 'Did not match route path correctly: ' + req.path)
       done()
     })
 
@@ -50,6 +51,7 @@ describe('Router', function () {
   })
 
   it('BROWSER: should process route on popstate', function (done) {
+    router.base(window.location.pathname)
     router.get('/', function (req, res) {
       done()
     })

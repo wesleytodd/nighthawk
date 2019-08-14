@@ -5,7 +5,7 @@ var assert = require('assert')
 describe('Request', function () {
   it('should have the correct protocol', function () {
     var r = new Request()
-    assert.strictEqual(r.protocol, 'file')
+    assert.strictEqual(r.protocol + ':', window.location.protocol)
     assert.strictEqual(r.secure, false)
   })
   it('should have the correct hostname', function () {
