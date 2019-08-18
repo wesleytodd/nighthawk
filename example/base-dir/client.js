@@ -1,7 +1,7 @@
 var router = require('nighthawk')({
-	base: '/base'
-});
-var routes = require('./routes');
+  base: '/base'
+})
+var routes = require('./routes')
 
-routes(router);
-router.listen();
+routes(router)
+router.listen()

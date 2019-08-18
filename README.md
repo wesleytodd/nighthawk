@@ -1,9 +1,9 @@
 # Express' Router for the Browser
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
+[![NPM Version](https://img.shields.io/npm/v/nighthawk.svg)](https://npmjs.org/package/nighthawk)
+[![NPM Downloads](https://img.shields.io/npm/dm/nighthawk.svg)](https://npmjs.org/package/nighthawk)
 [![Build Status](https://travis-ci.org/wesleytodd/nighthawk.svg?branch=master)](https://travis-ci.org/wesleytodd/nighthawk)
-[![js-happiness-style](https://img.shields.io/badge/code%20style-happiness-brightgreen.svg)](https://github.com/JedWatson/happiness)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/wesleytodd123)](https://saucelabs.com/u/wesleytodd123)
 
 The Express Router is great!  It is reliable and really simple.  With Express 5.0 the router module was pulled out into a stand-alone package, 
@@ -22,20 +22,20 @@ $ npm install --save nighthawk
 `browser.js`:
 
 ```javascript
-var Nighthawk = require('nighthawk');
+var Nighthawk = require('nighthawk')
 
 // Create your router
-var router = Nighthawk();
+var router = Nighthawk()
 
 // Register your routes
 router.get('/', function(req, res) {
-	alert('Hi from your nighthawk router!');
-});
+  alert('Hi from your nighthawk router!')
+})
 router.get('/:foo', function(req, res) {
-	alert('You visited /' + req.params.foo);
-});
+  alert('You visited /' + req.params.foo)
+})
 
-router.listen();
+router.listen()
 ```
 
 ### Setting A Base Path
@@ -44,19 +44,19 @@ Nighthawk supports service applications that are not hosted at the root of your 
 the router constructor.  For example:
 
 ```javascript
-var Nighthawk = require('nighthawk');
+var Nighthawk = require('nighthawk')
 
 var router = new Nighthawk({
-	base: '/foo'
-});
+  base: '/foo'
+})
 
 // Optionally you can also set the base path
 // with `router.base('/foo')`.
 
 router.get('/bar', function(req, res) {
-	alert('You are not at /foo/bar');
-});
-router.listen();
+  alert('You are not at /foo/bar')
+})
+router.listen()
 ```
 
 If have routes which match your base path but require full server rendered page refreshes, you
@@ -130,8 +130,3 @@ $ npm test
 
 <a name="fn1" href="#fn1">[1]</a>: In opinionated frameworks this is not really that big of a deal because you are already tied down 
 to an ecosystem that probably works really well.  But in a "pick your own adventure" style application it is much nicer to have less coupling.
-
-[npm-image]: https://img.shields.io/npm/v/nighthawk.svg
-[npm-url]: https://npmjs.org/package/nighthawk
-[downloads-image]: https://img.shields.io/npm/dm/nighthawk.svg
-[downloads-url]: https://npmjs.org/package/nighthawk

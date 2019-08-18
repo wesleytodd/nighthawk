@@ -1,5 +1,5 @@
-var router = require('nighthawk')();
-var routes = require('./routes');
+var router = require('nighthawk')()
+var routes = require('./routes')
 
-routes(router);
-router.listen();
+routes(router)
+router.listen()
